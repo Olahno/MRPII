@@ -371,6 +371,10 @@ void on_btn_hello_clicked()
 {
 	forwd(2);
 }
+void btn_forward_button_press_event_cb()
+{
+	forwd(2);
+}
  
 // called when window is closed
 void on_window_main_destroy()

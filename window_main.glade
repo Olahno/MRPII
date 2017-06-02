@@ -50,8 +50,23 @@
             <signal name="clicked" handler="on_btn_hello_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">167</property>
-            <property name="y">234</property>
+            <property name="x">273</property>
+            <property name="y">152</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_forward">
+            <property name="label" translatable="yes">button</property>
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="button-press-event" handler="btn_forward_button_press_event_cb" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">92</property>
+            <property name="y">309</property>
           </packing>
         </child>
       </object>
