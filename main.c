@@ -373,7 +373,12 @@ void on_btn_hello_clicked()
 }
 void btn_forward_button_press_event_cb()
 {
-	forwd(2);
+	fforwd();
+}
+
+void btn_forward_button_release_event_cb()
+{
+	stop();
 }
  
 // called when window is closed

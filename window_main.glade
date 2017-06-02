@@ -63,6 +63,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <signal name="button-press-event" handler="btn_forward_button_press_event_cb" swapped="no"/>
+            <signal name="button-release-event" handler="btn_forward_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
             <property name="x">92</property>
