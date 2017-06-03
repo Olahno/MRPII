@@ -389,27 +389,27 @@ int main(int argc, char *argv[])
     return 0;
 }
  
-btn_right_button_press_event_cb()
+void btn_right_button_press_event_cb()
 {
 	rright();
 }
-btn_right_button_release_event_cb()
+void btn_right_button_release_event_cb()
 {
 	stop();
 }
-btn_back_button_press_event_cb()
+void btn_back_button_press_event_cb()
 {
 	bbackwd();
 }
-tn_back_button_release_event_cb()
+void btn_back_button_release_event_cb()
 {
 	stop();
 }
-btn_left_button_press_event_cb()
+void btn_left_button_press_event_cb()
 {
 	lleft();
 }
-btn_left_button_release_event_cb()
+void btn_left_button_release_event_cb()
 {
 	stop();
 }
