@@ -214,6 +214,17 @@ void right(unsigned int t)
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
+void rright()
+{
+   DCMotorRun(1, FORWARD);
+   digitalWrite(MOTOR_1_PWM, 1);
+   DCMotorRun(2, FORWARD);
+   digitalWrite(MOTOR_2_PWM, 1);
+   DCMotorRun(3, BACKWARD);
+   digitalWrite(MOTOR_3_PWM, 1);
+   DCMotorRun(4, BACKWARD);
+   digitalWrite(MOTOR_4_PWM, 1);
+}
 void backwd(int t)
 {
    DCMotorRun(1, FORWARD);
@@ -234,6 +245,18 @@ void backwd(int t)
  sleep(1);
 
 }
+void bbackwd()
+{
+   DCMotorRun(1, FORWARD);
+ digitalWrite(MOTOR_1_PWM, 1);
+   DCMotorRun(2, BACKWARD);
+   digitalWrite(MOTOR_2_PWM, 1);
+
+   DCMotorRun(3, FORWARD);
+   digitalWrite(MOTOR_3_PWM, 1);
+   DCMotorRun(4, BACKWARD);
+   digitalWrite(MOTOR_4_PWM, 1);
+} 
 void forwd(int t)
 {
    DCMotorRun(1, BACKWARD);
@@ -366,10 +389,29 @@ int main(int argc, char *argv[])
     return 0;
 }
  
-// called when button is clicked
-void on_btn_hello_clicked()
+btn_right_button_press_event_cb()
 {
-	forwd(2);
+	rright();
+}
+btn_right_button_release_event_cb()
+{
+	stop();
+}
+btn_back_button_press_event_cb()
+{
+	bbackwd();
+}
+tn_back_button_release_event_cb()
+{
+	stop();
+}
+btn_left_button_press_event_cb()
+{
+	lleft();
+}
+btn_left_button_release_event_cb()
+{
+	stop();
 }
 void btn_forward_button_press_event_cb()
 {
