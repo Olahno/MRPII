@@ -422,10 +422,10 @@ void btn_forward_button_release_event_cb()
 {
 	stop();
 }
-void btn_cam_clicked_cb()
+/*void btn_cam_clicked_cb()
 {
-	system("cam.sh");
-}
+	system("./cam.sh");
+}*/
  
 // called when window is closed
 void on_window_main_destroy()
