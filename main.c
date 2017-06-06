@@ -447,6 +447,7 @@ void on_btn_tsonar_toggled()
 	updatesonarlabel(distance);
 		
 }
+}
 void on_btn_sonar_clicked()
 {	
 int distance;
