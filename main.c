@@ -432,11 +432,12 @@ void updatesonarlabel(int distance)
 }
 void btn_sonar_toggled_cb(GtkToggleButton *btn_sonar)
 {	int distance;
+	distance=getCM();
 	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
-	while(gtk_toggle_button_get_active (btn_sonar))
-{ 	distance=getCM();
+	//while(gtk_toggle_button_get_active (btn_sonar))
+//{ 	distance=getCM();
 	updatesonarlabel(distance);	
-}
+//}
 }
 /*void btn_cam_clicked_cb()
 {
