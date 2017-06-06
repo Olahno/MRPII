@@ -441,12 +441,12 @@ void on_btn_tsonar_toggled()
 {	int distance;
 //	g_timeout_add_seconds (2,getCM);
 	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
-	while(gtk_toggle_button_get_active (btn_sonar))
-{
+	//while(gtk_toggle_button_get_active (btn_sonar))
+
  	distance = g_timeout_add_seconds (2,getCM,NULL);
 	updatesonarlabel(distance);
 		
-}
+
 }
 void on_btn_sonar_clicked()
 {	
