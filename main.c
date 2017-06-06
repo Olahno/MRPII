@@ -436,6 +436,7 @@ void on_btn_sonar_toggled(GtkToggleButton *btn_sonar)
 	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
 	while(gtk_toggle_button_get_active (btn_sonar))
 { 	distance=getCM();
+	delay(2000);
 	updatesonarlabel(distance);	
 }
 }
