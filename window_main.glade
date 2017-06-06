@@ -24,8 +24,8 @@
             <signal name="button-release-event" handler="btn_forward_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">274</property>
-            <property name="y">281</property>
+            <property name="x">239</property>
+            <property name="y">85</property>
           </packing>
         </child>
         <child>
@@ -40,8 +40,8 @@
             <signal name="button-release-event" handler="btn_left_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">168</property>
-            <property name="y">365</property>
+            <property name="x">137</property>
+            <property name="y">174</property>
           </packing>
         </child>
         <child>
@@ -56,8 +56,8 @@
             <signal name="button-release-event" handler="btn_back_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">277</property>
-            <property name="y">366</property>
+            <property name="x">242</property>
+            <property name="y">171</property>
           </packing>
         </child>
         <child>
@@ -74,8 +74,8 @@
             <signal name="button-release-event" handler="btn_right_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">386</property>
-            <property name="y">365</property>
+            <property name="x">349</property>
+            <property name="y">170</property>
           </packing>
         </child>
         <child>
@@ -88,8 +88,8 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">19</property>
-            <property name="y">279</property>
+            <property name="x">13</property>
+            <property name="y">80</property>
           </packing>
         </child>
         <child>
@@ -104,8 +104,8 @@
             <signal name="toggled" handler="btn_sonar_toggled_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">18</property>
-            <property name="y">364</property>
+            <property name="x">15</property>
+            <property name="y">176</property>
           </packing>
         </child>
         <child>
@@ -117,8 +117,8 @@
             <property name="label" translatable="yes">Distance:</property>
           </object>
           <packing>
-            <property name="x">5</property>
-            <property name="y">197</property>
+            <property name="x">8</property>
+            <property name="y">10</property>
           </packing>
         </child>
         <child>
@@ -131,6 +131,19 @@
           <packing>
             <property name="x">97</property>
             <property name="y">220</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="x">111</property>
+            <property name="y">7</property>
           </packing>
         </child>
       </object>

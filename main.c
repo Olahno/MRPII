@@ -340,7 +340,7 @@ direction = 6;
 }
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
-//GtkWidget *lbl_sonar;
+GtkWidget *lbl_sonar;
 
 int main(int argc, char *argv[])
 {
@@ -378,9 +378,10 @@ int main(int argc, char *argv[])
     gtk_builder_connect_signals(builder, NULL);
     
     // get pointers to the two labels
+
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
-   // lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder,"distance"));
+    lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder,"distance"));
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -429,9 +430,9 @@ void updatesonarlabel(GtkLabel *lbl_sonar, int distance)
 	gtk_label_set_text (GTK_LABEL(lbl_sonar), "fuckyou");
 	g_free(sonardistance);
 }
-void btn_sonar_toggled_cb(GtkToggleButton *btn_sonar, GtkLabel *lbl_distance)
+void btn_sonar_toggled_cb(GtkToggleButton *btn_sonar, GtkLabel *lbl_sonar)
 {	int distance;
-	gtk_label_set_text(lbl_distance,"fuckyou");
+	gtk_label_set_text(GTK_LABEL(lbl_sonar), "fuckyou");
 	/*while(gtk_toggle_button_get_active (btn_sonar))
 { 	distance=getCM();
 	//updatesonarlabel(lbl_sonar,distance);	
