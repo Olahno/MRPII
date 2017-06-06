@@ -422,6 +422,11 @@ void btn_forward_button_release_event_cb()
 {
 	stop();
 }
+void btn_sonar_toggled_cb()
+{	while(gtk_toggle_button_get_active (GtkToggleButton *btn_sonar);)
+	gtk_label_set_text (GTK_LABEL (lbl_sonar), getCM());
+	
+}
 /*void btn_cam_clicked_cb()
 {
 	system("./cam.sh");
