@@ -430,7 +430,7 @@ void updatesonarlabel(GtkLabel *lbl_sonar, int distance)
 	gtk_label_set_text (GTK_LABEL(lbl_sonar), "fuckyou");
 	g_free(sonardistance);
 }
-void btn_sonar_toggled_cb(GtkToggleButton *btn_sonar, GtkLabel *lbl_sonar)
+void btn_sonar_toggled_cb()
 {	int distance;
 	gtk_label_set_text(GTK_LABEL(lbl_sonar), "fuckyou");
 	/*while(gtk_toggle_button_get_active (btn_sonar))
