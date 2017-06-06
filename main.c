@@ -339,6 +339,7 @@ direction = 6;
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_sonar;
+GtkToggleButton *btn_sonar;
 
 int main(int argc, char *argv[])
 {
@@ -436,15 +437,14 @@ void updatesonarlabel(int distance)
 	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
 }
-/*void on_btn_sonar_toggled(GtkToggleButton *btn_sonar)
+void on_btn_tsonar_toggled()
 {	int distance;
-	distance=getCM();
+//	g_timeout_add_seconds (2,getCM);
 	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
 	while(gtk_toggle_button_get_active (btn_sonar))
-{ 	distance=getCM();
-	delay(2000);
-	updatesonarlabel(distance);	
-}*/
+ 	distance = g_timeout_add_seconds (2,getCM,NULL);
+		
+}
 void on_btn_sonar_clicked()
 {	
 int distance;
