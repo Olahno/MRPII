@@ -423,20 +423,20 @@ void btn_forward_button_release_event_cb()
 {
 	stop();
 }
-void updatesonarlabel(GtkLabel *lbl_sonar, int distance)
+void updatesonarlabel(int distance)
 {
 	gchar *sonardistance;
 	sonardistance = g_strdup_printf("%d", distance);
-	gtk_label_set_text (GTK_LABEL(lbl_sonar), "fuckyou");
+	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
 }
 void btn_sonar_toggled_cb()
 {	int distance;
-	gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
-	/*while(gtk_toggle_button_get_active (btn_sonar))
+	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
+	while(gtk_toggle_button_get_active (btn_sonar))
 { 	distance=getCM();
-	//updatesonarlabel(lbl_sonar,distance);	
-}*/
+	updatesonarlabel(distance);	
+}
 }
 /*void btn_cam_clicked_cb()
 {
