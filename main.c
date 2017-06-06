@@ -430,7 +430,7 @@ void updatesonarlabel(int distance)
 	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
 }
-void on_btn_sonar_toggled(GtkToggleButton *btn_sonar)
+/*void on_btn_sonar_toggled(GtkToggleButton *btn_sonar)
 {	int distance;
 	distance=getCM();
 	//gtk_label_set_text(GTK_LABEL(g_lbl_sonar), "fuckyou");
@@ -438,6 +438,12 @@ void on_btn_sonar_toggled(GtkToggleButton *btn_sonar)
 { 	distance=getCM();
 	delay(2000);
 	updatesonarlabel(distance);	
+}*/
+void on_btn_sonar_clicked()
+{	
+int distance;
+distance=getCM();
+updatesonarlabel(distance);
 }
 }
 /*void btn_cam_clicked_cb()
