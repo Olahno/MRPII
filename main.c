@@ -331,8 +331,6 @@ delay(500);
 	right(turn_degree);
 	}
 delay(500);
-printf("Max distance: %d\n", max_distance);
-printf("Direction: %d\n", direction);
 max_distance = 0;
 direction = 6;
 	}
@@ -389,6 +387,10 @@ int main(int argc, char *argv[])
  
     return 0;
 }
+void on_btn_startauto_clicked()
+{
+	autopilot(2,30);
+}
  
 void btn_right_button_press_event_cb()
 {
@@ -420,6 +422,10 @@ void btn_forward_button_press_event_cb()
 }
 
 void btn_forward_button_release_event_cb()
+{
+	stop();
+}
+void on_btn_stopauto_clicked()
 {
 	stop();
 }

@@ -24,14 +24,14 @@
             <signal name="button-release-event" handler="btn_forward_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">239</property>
-            <property name="y">85</property>
+            <property name="x">139</property>
+            <property name="y">74</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="btn_left">
             <property name="label" translatable="yes">⇦</property>
-            <property name="width_request">100</property>
+            <property name="width_request">116</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -40,8 +40,8 @@
             <signal name="button-release-event" handler="btn_left_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">137</property>
-            <property name="y">174</property>
+            <property name="x">12</property>
+            <property name="y">163</property>
           </packing>
         </child>
         <child>
@@ -56,14 +56,14 @@
             <signal name="button-release-event" handler="btn_back_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">242</property>
-            <property name="y">171</property>
+            <property name="x">139</property>
+            <property name="y">164</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="btn_right">
             <property name="label" translatable="yes">⇨</property>
-            <property name="width_request">100</property>
+            <property name="width_request">116</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -74,22 +74,8 @@
             <signal name="button-release-event" handler="btn_right_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">349</property>
-            <property name="y">170</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkToggleButton" id="btn_autopilot">
-            <property name="label" translatable="yes">Start autopilot</property>
-            <property name="width_request">115</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-          </object>
-          <packing>
-            <property name="x">13</property>
-            <property name="y">167</property>
+            <property name="x">249</property>
+            <property name="y">163</property>
           </packing>
         </child>
         <child>
@@ -121,7 +107,7 @@
           <object class="GtkButton" id="btn_sonar">
             <property name="label" translatable="yes">Check distance</property>
             <property name="width_request">116</property>
-            <property name="height_request">80</property>
+            <property name="height_request">76</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -129,8 +115,38 @@
             <signal name="clicked" handler="on_btn_sonar_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">15</property>
-            <property name="y">72</property>
+            <property name="x">11</property>
+            <property name="y">76</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_startauto">
+            <property name="label" translatable="yes">Start</property>
+            <property name="width_request">98</property>
+            <property name="height_request">72</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btn_startauto_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">251</property>
+            <property name="y">78</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_stopauto">
+            <property name="label" translatable="yes">Stop</property>
+            <property name="width_request">96</property>
+            <property name="height_request">70</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btn_stopauto_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">357</property>
+            <property name="y">78</property>
           </packing>
         </child>
       </object>
