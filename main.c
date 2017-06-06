@@ -340,7 +340,8 @@ direction = 6;
 }
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
- 
+//GtkWidget *lbl_sonar;
+
 int main(int argc, char *argv[])
 {
     if (wiringPiSetup () == -1)
@@ -368,7 +369,6 @@ int main(int argc, char *argv[])
 
     GtkBuilder      *builder; 
     GtkWidget       *window;
- 
     gtk_init(&argc, &argv);
  
     builder = gtk_builder_new();
@@ -380,7 +380,7 @@ int main(int argc, char *argv[])
     // get pointers to the two labels
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
- 
+   // lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder,"distance"));
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -422,10 +422,20 @@ void btn_forward_button_release_event_cb()
 {
 	stop();
 }
-void btn_sonar_toggled_cb()
-{	while(gtk_toggle_button_get_active (GtkToggleButton *btn_sonar);)
-	gtk_label_set_text (GTK_LABEL (lbl_sonar), getCM());
-	
+void updatesonarlabel(GtkLabel *lbl_sonar, int distance)
+{
+	gchar *sonardistance;
+	sonardistance = g_strdup_printf("%d", distance);
+	gtk_label_set_text (GTK_LABEL(lbl_sonar), "fuckyou");
+	g_free(sonardistance);
+}
+void btn_sonar_toggled_cb(GtkToggleButton *btn_sonar, GtkLabel *lbl_distance)
+{	int distance;
+	gtk_label_set_text(lbl_distance,"fuckyou");
+	/*while(gtk_toggle_button_get_active (btn_sonar))
+{ 	distance=getCM();
+	//updatesonarlabel(lbl_sonar,distance);	
+}*/
 }
 /*void btn_cam_clicked_cb()
 {
