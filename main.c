@@ -445,7 +445,7 @@ int distance;
 distance=getCM();
 updatesonarlabel(distance);
 }
-}
+
 /*void btn_cam_clicked_cb()
 {
 	system("./cam.sh");
