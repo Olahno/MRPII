@@ -101,7 +101,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="xalign">0.54000002145767212</property>
-            <signal name="toggled" handler="btn_sonar_toggled_cb" swapped="no"/>
+            <signal name="toggled" handler="on_btn_sonar_toggled" swapped="no"/>
           </object>
           <packing>
             <property name="x">15</property>
