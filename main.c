@@ -445,6 +445,7 @@ int distance;
 while(gtk_toggle_button_get_active(g_btn_sonar)){
 distance=getCM();
 updatesonarlabel(distance);
+delay(500);
 	while (gtk_events_pending()) {
 	gtk_main_iteration();
 }
