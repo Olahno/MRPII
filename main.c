@@ -339,7 +339,7 @@ direction = 6;
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_sonar;
-GtkToggleButton *btn_sonar;
+GtkToggleButton *g_btn_sonar;
 
 int main(int argc, char *argv[])
 {
@@ -381,6 +381,7 @@ int main(int argc, char *argv[])
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
+    g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -438,11 +439,16 @@ void updatesonarlabel(int distance)
 	g_free(sonardistance);
 }
 
-void on_btn_sonar_clicked()
+void on_btn_sonar_toggled()
 {	
 int distance;
+while(gtk_toggle_button_get_active(g_btn_sonar)){
 distance=getCM();
 updatesonarlabel(distance);
+	while (gtk_events_pending()) {
+	gtk_main_iteration();
+}
+}
 }
 
 /*void btn_cam_clicked_cb()
