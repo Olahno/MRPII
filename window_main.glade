@@ -24,8 +24,8 @@
             <signal name="button-release-event" handler="btn_forward_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">216</property>
-            <property name="y">73</property>
+            <property name="x">209</property>
+            <property name="y">121</property>
           </packing>
         </child>
         <child>
@@ -41,7 +41,7 @@
           </object>
           <packing>
             <property name="x">91</property>
-            <property name="y">158</property>
+            <property name="y">204</property>
           </packing>
         </child>
         <child>
@@ -56,8 +56,8 @@
             <signal name="button-release-event" handler="btn_back_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">214</property>
-            <property name="y">160</property>
+            <property name="x">209</property>
+            <property name="y">204</property>
           </packing>
         </child>
         <child>
@@ -74,8 +74,8 @@
             <signal name="button-release-event" handler="btn_right_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">320</property>
-            <property name="y">158</property>
+            <property name="x">313</property>
+            <property name="y">203</property>
           </packing>
         </child>
         <child>
@@ -101,22 +101,6 @@
           <packing>
             <property name="x">105</property>
             <property name="y">34</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="btn_sonar">
-            <property name="label" translatable="yes">Check distance</property>
-            <property name="width_request">116</property>
-            <property name="height_request">76</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="xalign">0.43999999761581421</property>
-            <signal name="clicked" handler="on_btn_sonar_clicked" swapped="no"/>
-          </object>
-          <packing>
-            <property name="x">11</property>
-            <property name="y">76</property>
           </packing>
         </child>
         <child>
@@ -167,6 +151,21 @@
           <packing>
             <property name="x">444</property>
             <property name="y">159</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="btn_sonar">
+            <property name="label" translatable="yes">togglebutton</property>
+            <property name="width_request">107</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="toggled" handler="on_btn_sonar_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">21</property>
+            <property name="y">86</property>
           </packing>
         </child>
       </object>
