@@ -412,7 +412,7 @@ int direction = 6;
 int i;
 const char *getturn;
 getturn = gtk_entry_get_text(GTK_ENTRY(g_entry_turn));
-int fraction = atoi(getturn);
+double fraction = atof(getturn);
 fraction = fraction/12;
 fraction = fraction*1000;
 int turn_degree = 0;
@@ -465,7 +465,6 @@ delay(500);
 }
 }
 void on_btn_auto_toggled(){
-stop();
 autopilot();
 }
 
