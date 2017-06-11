@@ -90,6 +90,28 @@ void enable(void)
 
    digitalWrite(MOTORENABLE, LOW);
 }
+int getCM() {
+       //delay(200);
+	 //Send trig pulse
+        digitalWrite(TRIG, HIGH);
+        delayMicroseconds(60);
+        digitalWrite(TRIG, LOW);
+
+        //Wait for echo start
+        while(digitalRead(ECHO) == LOW);
+
+        //Wait for echo end
+        long startTime = micros();
+        while(digitalRead(ECHO) == HIGH);
+        long travelTime = micros() - startTime;
+
+        //Get distance in cm
+        int distance = travelTime / 58;
+	
+       // printf("Distance: %dcm\n", distance);
+        return distance;
+}
+
 
 
 void DCMotorInit(uint8_t num)
@@ -430,34 +452,14 @@ void updatesonarlabel(int distance)
 	g_free(sonardistance);
 }
 
-int getCM() {
-       //delay(200);
-	 //Send trig pulse
-        digitalWrite(TRIG, HIGH);
-        delayMicroseconds(60);
-        digitalWrite(TRIG, LOW);
-
-        //Wait for echo start
-        while(digitalRead(ECHO) == LOW);
-
-        //Wait for echo end
-        long startTime = micros();
-        while(digitalRead(ECHO) == HIGH);
-        long travelTime = micros() - startTime;
-
-        //Get distance in cm
-        int distance = travelTime / 58;
-	updatesonarlabel(distance);
-       // printf("Distance: %dcm\n", distance);
-        return distance;
-}
 
 
 void on_btn_sonar_toggled()
 {	
 int distance;
 while(gtk_toggle_button_get_active(g_btn_sonar)){
-getCM();
+distance = getCM();
+updatesonarlabel(distance);
 delay(400);
 	while (gtk_events_pending()) {
 	gtk_main_iteration();
