@@ -37,8 +37,6 @@ typedef unsigned char uint8_t;
 
 static unsigned char latch_state;
 
-
-
 void latch_tx(void)
 {
    unsigned char i;
@@ -84,6 +82,7 @@ void enable(void)
 
    digitalWrite(MOTORENABLE, LOW);
 }
+
 int getCM() {
        //delay(200);
 	 //Send trig pulse
@@ -101,12 +100,9 @@ int getCM() {
 
         //Get distance in cm
         int distance = travelTime / 58;
-	
        // printf("Distance: %dcm\n", distance);
         return distance;
 }
-
-
 
 void DCMotorInit(uint8_t num)
 {
@@ -300,17 +296,15 @@ void stop()
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
-/*
-void autopilot()
+void autopilot(int times,int block)
 {
-int block = atoi(gtk_entry_get_text(GTK_ENTRY(g_entry_block)));
 int clockn [12];
 int i,j = 1;
 int max_distance = 0;
 int direction = 6;
-unsigned int fraction = (atoi(gtk_entry_get_text(GTK_ENTRY(g_entry_turn)))/12)*1000;
+unsigned int fraction = 209;
 int turn_degree = 0;
-	while(gtk_toggle_button_get_active(g_btn_auto)){
+	for (j = times;j>0;j--){
 fforwd();
 while (getCM()>=block){}
 stop();
@@ -339,19 +333,13 @@ delay(500);
 delay(500);
 max_distance = 0;
 direction = 6;
-while (gtk_events_pending()) {
-	gtk_main_iteration();
-}
 	}
 
-}*/
+}
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_sonar;
-/*GtkEntry *g_entry_turn;
-GtkEntry *g_entry_block;*/
 GtkToggleButton *g_btn_sonar;
-//GtkToggleButton *g_btn_auto;
 
 int main(int argc, char *argv[])
 {
@@ -394,9 +382,6 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
-    /*g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
-    g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
-    g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));*/
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -404,7 +389,10 @@ int main(int argc, char *argv[])
  
     return 0;
 }
-
+void on_btn_startauto_clicked()
+{
+	autopilot(2,30);
+}
  
 void btn_right_button_press_event_cb()
 {
@@ -451,23 +439,17 @@ void updatesonarlabel(int distance)
 	g_free(sonardistance);
 }
 
-
-
 void on_btn_sonar_toggled()
 {	
 int distance;
 while(gtk_toggle_button_get_active(g_btn_sonar)){
-distance = getCM();
+distance=getCM();
 updatesonarlabel(distance);
-delay(400);
+delay(500);
 	while (gtk_events_pending()) {
 	gtk_main_iteration();
 }
 }
-}
-/*void on_btn_auto_toggled()
-{
-	autopilot();
 }
 
 /*void btn_cam_clicked_cb()
@@ -478,5 +460,4 @@ delay(400);
 // called when window is closed
 void on_window_main_destroy()
 {
-    gtk_main_quit();
-}
+    gtk_main_quit();}
