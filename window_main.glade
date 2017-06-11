@@ -112,7 +112,6 @@
             <property name="max_length">3</property>
             <property name="width_chars">3</property>
             <property name="caps_lock_warning">False</property>
-            <property name="input_purpose">digits</property>
           </object>
           <packing>
             <property name="x">286</property>
@@ -128,7 +127,6 @@
             <property name="max_length">3</property>
             <property name="width_chars">3</property>
             <property name="caps_lock_warning">False</property>
-            <property name="input_purpose">digits</property>
           </object>
           <packing>
             <property name="x">218</property>

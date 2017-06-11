@@ -296,50 +296,14 @@ void stop()
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
-void autopilot(int times,int block)
-{
-int clockn [12];
-int i,j = 1;
-int max_distance = 0;
-int direction = 6;
-unsigned int fraction = 209;
-int turn_degree = 0;
-	for (j = times;j>0;j--){
-fforwd();
-while (getCM()>=block){}
-stop();
-delay(500);
-lleft();
-for (i = 1;i<=12;i++) {
-        delay(fraction);
-        clockn[i]=getCM();
-        if (clockn[i] > max_distance){
-                if (i!=5 && i!=6 && i!=7){
-                max_distance = clockn[i];
-                direction = i;
-                }
-        }
-}
-stop();
-delay(500);
-	if (direction <= 4){
-	turn_degree = fraction * direction;
-	left(turn_degree);
-	}
-	else {
-	turn_degree = fraction * (12 - direction);
-	right(turn_degree);
-	}
-delay(500);
-max_distance = 0;
-direction = 6;
-	}
 
-}
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_sonar;
 GtkToggleButton *g_btn_sonar;
+GtkToggleButton *g_btn_auto;
+GtkEntry *g_entry_turn;
+GtkEntry *g_entry_block;
 
 int main(int argc, char *argv[])
 {
@@ -382,16 +346,15 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
+ g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
+g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
+	g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
     g_object_unref(builder);
  
     gtk_widget_show(window);                
     gtk_main();
  
     return 0;
-}
-void on_btn_startauto_clicked()
-{
-	autopilot(2,30);
 }
  
 void btn_right_button_press_event_cb()
@@ -437,6 +400,56 @@ void updatesonarlabel(int distance)
 	sonardistance = g_strdup_printf("%d", distance);
 	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
+}
+void autopilot()
+{
+int clockn [12];
+const char *getentry;
+getentry = gtk_entry_get_text(GTK_ENTRY(g_entry_block));
+int block = atoi(getentry);
+int max_distance = 0;
+int direction = 6;
+int i;
+const char *getturn;
+getturn = gtk_entry_get_text(GTK_ENTRY(g_entry_turn));
+int fraction = atoi(getturn);
+fraction = fraction/12;
+fraction = fraction*1000;
+int turn_degree = 0;
+	while(gtk_toggle_button_get_active(g_btn_auto)){
+fforwd();
+while (getCM()>=block){}
+stop();
+delay(500);
+lleft();
+for (i = 1;i<=12;i++) {
+        delay(fraction);
+        clockn[i]=getCM();
+        if (clockn[i] > max_distance){
+                if (i!=5 && i!=6 && i!=7){
+                max_distance = clockn[i];
+                direction = i;
+                }
+        }
+}
+stop();
+delay(500);
+	if (direction <= 4){
+	turn_degree = fraction * direction;
+	left(turn_degree);
+	}
+	else {
+	turn_degree = fraction * (12 - direction);
+	right(turn_degree);
+	}
+delay(500);
+max_distance = 0;
+direction = 6;
+while (gtk_events_pending()) {
+	gtk_main_iteration();
+}
+	}
+
 }
 
 void on_btn_sonar_toggled()
