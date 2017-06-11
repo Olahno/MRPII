@@ -120,7 +120,7 @@
         </child>
         <child>
           <object class="GtkEntry" id="entry_block">
-            <property name="width_request">58</property>
+            <property name="width_request">51</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -129,8 +129,8 @@
             <property name="caps_lock_warning">False</property>
           </object>
           <packing>
-            <property name="x">231</property>
-            <property name="y">55</property>
+            <property name="x">237</property>
+            <property name="y">48</property>
           </packing>
         </child>
         <child>
