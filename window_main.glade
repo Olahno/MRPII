@@ -25,14 +25,14 @@
             <signal name="button-release-event" handler="btn_forward_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">209</property>
+            <property name="x">128</property>
             <property name="y">121</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="btn_left">
             <property name="label" translatable="yes">⇦</property>
-            <property name="width_request">116</property>
+            <property name="width_request">112</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -41,8 +41,8 @@
             <signal name="button-release-event" handler="btn_left_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">91</property>
-            <property name="y">204</property>
+            <property name="x">11</property>
+            <property name="y">203</property>
           </packing>
         </child>
         <child>
@@ -57,7 +57,7 @@
             <signal name="button-release-event" handler="btn_back_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">209</property>
+            <property name="x">129</property>
             <property name="y">204</property>
           </packing>
         </child>
@@ -75,7 +75,7 @@
             <signal name="button-release-event" handler="btn_right_button_release_event_cb" swapped="no"/>
           </object>
           <packing>
-            <property name="x">313</property>
+            <property name="x">237</property>
             <property name="y">203</property>
           </packing>
         </child>
@@ -88,8 +88,8 @@
             <property name="label" translatable="yes">Distance:</property>
           </object>
           <packing>
-            <property name="x">8</property>
-            <property name="y">10</property>
+            <property name="x">140</property>
+            <property name="y">4</property>
           </packing>
         </child>
         <child>
@@ -100,64 +100,48 @@
             <property name="can_focus">False</property>
           </object>
           <packing>
-            <property name="x">105</property>
-            <property name="y">34</property>
+            <property name="x">226</property>
+            <property name="y">29</property>
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="entry1">
-            <property name="width_request">100</property>
+          <object class="GtkEntry" id="entry_turn">
+            <property name="width_request">59</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="max_length">3</property>
+            <property name="has_frame">False</property>
+            <property name="width_chars">3</property>
+            <property name="caps_lock_warning">False</property>
+            <property name="input_purpose">digits</property>
           </object>
           <packing>
-            <property name="x">374</property>
-            <property name="y">34</property>
+            <property name="x">243</property>
+            <property name="y">35</property>
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="entry2">
-            <property name="width_request">166</property>
+          <object class="GtkEntry" id="entry_block">
+            <property name="width_request">58</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="max_length">3</property>
+            <property name="has_frame">False</property>
+            <property name="width_chars">3</property>
+            <property name="caps_lock_warning">False</property>
+            <property name="input_purpose">digits</property>
           </object>
           <packing>
-            <property name="x">374</property>
-            <property name="y">66</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEntry" id="entry3">
-            <property name="width_request">166</property>
-            <property name="height_request">79</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-          </object>
-          <packing>
-            <property name="x">377</property>
-            <property name="y">101</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="button1">
-            <property name="label" translatable="yes">button</property>
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-          </object>
-          <packing>
-            <property name="x">444</property>
-            <property name="y">159</property>
+            <property name="x">245</property>
+            <property name="y">63</property>
           </packing>
         </child>
         <child>
           <object class="GtkToggleButton" id="btn_sonar">
-            <property name="label" translatable="yes">Start sonar</property>
-            <property name="width_request">107</property>
+            <property name="label" translatable="yes">Sonar</property>
+            <property name="width_request">112</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -165,8 +149,22 @@
             <signal name="toggled" handler="on_btn_sonar_toggled" swapped="no"/>
           </object>
           <packing>
-            <property name="x">21</property>
-            <property name="y">86</property>
+            <property name="x">10</property>
+            <property name="y">120</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="btn_auto">
+            <property name="label" translatable="yes">Autopilot</property>
+            <property name="width_request">118</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">236</property>
+            <property name="y">120</property>
           </packing>
         </child>
       </object>

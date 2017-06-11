@@ -36,6 +36,14 @@ typedef unsigned char uint8_t;
 #define RELEASE  4
 
 static unsigned char latch_state;
+GtkWidget *g_lbl_hello;
+GtkWidget *g_lbl_count;
+GtkWidget *g_lbl_sonar;
+GtkEntry *g_entry_turn;
+GtkEntry *g_entry_block;
+GtkToggleButton *g_btn_sonar;
+GtkToggleButton *g_btn_auto;
+
 
 void latch_tx(void)
 {
@@ -82,6 +90,13 @@ void enable(void)
 
    digitalWrite(MOTORENABLE, LOW);
 }
+void updatesonarlabel(int distance)
+{
+	gchar *sonardistance;
+	sonardistance = g_strdup_printf("%d", distance);
+	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
+	g_free(sonardistance);
+}
 
 int getCM() {
        //delay(200);
@@ -100,6 +115,7 @@ int getCM() {
 
         //Get distance in cm
         int distance = travelTime / 58;
+	updatesonarlabel(distance);
        // printf("Distance: %dcm\n", distance);
         return distance;
 }
@@ -296,15 +312,16 @@ void stop()
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
-void autopilot(int times,int block)
+void autopilot()
 {
+int block = atoi(gtk_entry_get_text(GTK_ENTRY(g_entry_block)));
 int clockn [12];
 int i,j = 1;
 int max_distance = 0;
 int direction = 6;
-unsigned int fraction = 209;
+unsigned int fraction = (atoi(gtk_entry_get_text(GTK_ENTRY(g_entry_turn)))/12)*1000;
 int turn_degree = 0;
-	for (j = times;j>0;j--){
+	while(gtk_toggle_button_get_active(g_btn_auto)){
 fforwd();
 while (getCM()>=block){}
 stop();
@@ -333,13 +350,12 @@ delay(500);
 delay(500);
 max_distance = 0;
 direction = 6;
+while (gtk_events_pending()) {
+	gtk_main_iteration();
+}
 	}
 
 }
-GtkWidget *g_lbl_hello;
-GtkWidget *g_lbl_count;
-GtkWidget *g_lbl_sonar;
-GtkToggleButton *g_btn_sonar;
 
 int main(int argc, char *argv[])
 {
@@ -382,6 +398,9 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
+    g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
+    g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
+    g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -431,25 +450,22 @@ void on_btn_stopauto_clicked()
 {
 	stop();
 }
-void updatesonarlabel(int distance)
-{
-	gchar *sonardistance;
-	sonardistance = g_strdup_printf("%d", distance);
-	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
-	g_free(sonardistance);
-}
+
 
 void on_btn_sonar_toggled()
 {	
 int distance;
 while(gtk_toggle_button_get_active(g_btn_sonar)){
-distance=getCM();
-updatesonarlabel(distance);
-delay(500);
+getCM();
+delay(400);
 	while (gtk_events_pending()) {
 	gtk_main_iteration();
 }
 }
+}
+void on_btn_auto_toggled()
+{
+	autopilot();
 }
 
 /*void btn_cam_clicked_cb()
