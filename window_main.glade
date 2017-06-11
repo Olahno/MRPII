@@ -99,8 +99,8 @@
             <property name="can_focus">False</property>
           </object>
           <packing>
-            <property name="x">213</property>
-            <property name="y">12</property>
+            <property name="x">181</property>
+            <property name="y">25</property>
           </packing>
         </child>
         <child>
@@ -114,8 +114,8 @@
             <property name="caps_lock_warning">False</property>
           </object>
           <packing>
-            <property name="x">235</property>
-            <property name="y">87</property>
+            <property name="x">237</property>
+            <property name="y">83</property>
           </packing>
         </child>
         <child>
