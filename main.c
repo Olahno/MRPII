@@ -465,6 +465,7 @@ delay(500);
 }
 }
 void on_btn_auto_toggled(){
+stop();
 autopilot();
 }
 
