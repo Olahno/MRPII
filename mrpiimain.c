@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
       fprintf (stdout, "oops: %s\n", strerror (errno)) ;
       return 1 ;
    }
- pinMode(MOTOR_1_PWM, OUTPUT);
+   pinMode(MOTOR_1_PWM, OUTPUT);
    pinMode(MOTOR_2_PWM, OUTPUT);
    pinMode(MOTOR_3_PWM, OUTPUT);
    pinMode(MOTOR_4_PWM, OUTPUT);
@@ -87,64 +87,53 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
- g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
-g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
-	g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
+    g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
+    g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
+    g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
     g_object_unref(builder);
- 
     gtk_widget_show(window);                
     gtk_main();
  
     return 0;
 }
  //manual drive
-void btn_right_button_press_event_cb()
-{
+void btn_right_button_press_event_cb(){
 	rright();
 }
-void btn_right_button_release_event_cb()
-{
+void btn_right_button_release_event_cb(){
 	stop();
 }
-void btn_back_button_press_event_cb()
-{
+void btn_back_button_press_event_cb(){
 	bbackwd();
 }
-void btn_back_button_release_event_cb()
-{
+void btn_back_button_release_event_cb(){
 	stop();
 }
-void btn_left_button_press_event_cb()
-{
+void btn_left_button_press_event_cb(){
 	lleft();
 }
-void btn_left_button_release_event_cb()
-{
+void btn_left_button_release_event_cb(){
 	stop();
 }
-void btn_forward_button_press_event_cb()
-{
+void btn_forward_button_press_event_cb(){
 	fforwd();
 }
 
-void btn_forward_button_release_event_cb()
-{
+void btn_forward_button_release_event_cb(){
 	stop();
 }
-void on_btn_stopauto_clicked()
-{
+void on_btn_stopauto_clicked(){
 	stop();
 }
-void updatesonarlabel(int distance)
-{
+void updatesonarlabel(int distance){
 	gchar *sonardistance;
 	sonardistance = g_strdup_printf("%d", distance);
 	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
 }
 //autopilot algorithm
-void autopilot()
-{
+void autopilot(){
+
 int clockn [12];
 const char *getentry;
 getentry = gtk_entry_get_text(GTK_ENTRY(g_entry_block));
@@ -189,6 +178,7 @@ delay(500);
 delay(500);
 max_distance = 0;
 direction = 6;
+//main iteration, checking for toggle button condition
 while (gtk_events_pending()) {
 	gtk_main_iteration();
 }
@@ -196,16 +186,16 @@ while (gtk_events_pending()) {
 
 }
 	//enable sonar
-void on_btn_sonar_toggled()
-{	
+void on_btn_sonar_toggled(){	
 int distance;
 while(gtk_toggle_button_get_active(g_btn_sonar)){
 distance=getCM();
 updatesonarlabel(distance);
 delay(500);
+	//main iteration, checking for toggle button condition
 	while (gtk_events_pending()) {
 	gtk_main_iteration();
-}
+	}
 }
 }
 	//autopilot
@@ -216,6 +206,5 @@ autopilot();
 
  
 // called when window is closed
-void on_window_main_destroy()
-{
+void on_window_main_destroy(){
     gtk_main_quit();}
