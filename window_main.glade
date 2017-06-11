@@ -105,8 +105,8 @@
         </child>
         <child>
           <object class="GtkEntry" id="entry_turn">
-            <property name="width_request">59</property>
-            <property name="height_request">80</property>
+            <property name="width_request">53</property>
+            <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="max_length">3</property>
@@ -114,14 +114,14 @@
             <property name="caps_lock_warning">False</property>
           </object>
           <packing>
-            <property name="x">286</property>
-            <property name="y">44</property>
+            <property name="x">235</property>
+            <property name="y">87</property>
           </packing>
         </child>
         <child>
           <object class="GtkEntry" id="entry_block">
             <property name="width_request">58</property>
-            <property name="height_request">80</property>
+            <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="max_length">3</property>
@@ -129,8 +129,8 @@
             <property name="caps_lock_warning">False</property>
           </object>
           <packing>
-            <property name="x">218</property>
-            <property name="y">47</property>
+            <property name="x">231</property>
+            <property name="y">55</property>
           </packing>
         </child>
         <child>
@@ -161,6 +161,32 @@
           <packing>
             <property name="x">236</property>
             <property name="y">120</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="width_request">187</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Distance to the obstacle:</property>
+          </object>
+          <packing>
+            <property name="x">36</property>
+            <property name="y">51</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="width_request">171</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Time for a full turn:</property>
+          </object>
+          <packing>
+            <property name="x">44</property>
+            <property name="y">86</property>
           </packing>
         </child>
       </object>
