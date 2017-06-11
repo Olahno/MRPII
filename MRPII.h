@@ -2,7 +2,7 @@
 #define MRPII_H_
 typedef unsigned char uint8_t;
 int getCM();
-static unsigned char latch_state;
+
 void latch_tx(void);
 
 void enable();
