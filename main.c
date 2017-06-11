@@ -36,13 +36,7 @@ typedef unsigned char uint8_t;
 #define RELEASE  4
 
 static unsigned char latch_state;
-GtkWidget *g_lbl_hello;
-GtkWidget *g_lbl_count;
-GtkWidget *g_lbl_sonar;
-GtkEntry *g_entry_turn;
-GtkEntry *g_entry_block;
-GtkToggleButton *g_btn_sonar;
-GtkToggleButton *g_btn_auto;
+
 
 
 void latch_tx(void)
@@ -350,6 +344,13 @@ while (gtk_events_pending()) {
 	}
 
 }
+GtkWidget *g_lbl_hello;
+GtkWidget *g_lbl_count;
+GtkWidget *g_lbl_sonar;
+GtkEntry *g_entry_turn;
+GtkEntry *g_entry_block;
+GtkToggleButton *g_btn_sonar;
+GtkToggleButton *g_btn_auto;
 
 int main(int argc, char *argv[])
 {
