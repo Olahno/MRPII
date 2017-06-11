@@ -464,6 +464,9 @@ delay(500);
 }
 }
 }
+void on_btn_auto_toggled(){
+autopilot();
+}
 
 /*void btn_cam_clicked_cb()
 {
