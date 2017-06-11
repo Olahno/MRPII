@@ -82,8 +82,7 @@ int main(int argc, char *argv[])
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
     
-    // get pointers to the two labels
-
+    // get pointers
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
@@ -98,7 +97,7 @@ g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
  
     return 0;
 }
- 
+ //manual drive
 void btn_right_button_press_event_cb()
 {
 	rright();
@@ -143,6 +142,7 @@ void updatesonarlabel(int distance)
 	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
 	g_free(sonardistance);
 }
+//autopilot algorithm
 void autopilot()
 {
 int clockn [12];
@@ -160,10 +160,12 @@ fraction = fraction*1000;
 int turn_degree = 0;
 	while(gtk_toggle_button_get_active(g_btn_auto)){
 fforwd();
+	//drive forward untill obsticle closer than block(cm)
 while (getCM()>=block){}
 stop();
 delay(500);
 lleft();
+	//turn left untill sonar gets 12 readings
 for (i = 1;i<=12;i++) {
         delay(fraction);
         clockn[i]=getCM();
@@ -193,7 +195,7 @@ while (gtk_events_pending()) {
 	}
 
 }
-
+	//enable sonar
 void on_btn_sonar_toggled()
 {	
 int distance;
@@ -206,14 +208,12 @@ delay(500);
 }
 }
 }
+	//autopilot
 void on_btn_auto_toggled(){
 autopilot();
 }
 
-/*void btn_cam_clicked_cb()
-{
-	system("./cam.sh");
-}*/
+
  
 // called when window is closed
 void on_window_main_destroy()

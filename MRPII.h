@@ -1,19 +1,20 @@
 #ifndef MRPII_H_
 #define MRPII_H_
 typedef unsigned char uint8_t;
-int getCM();
+
+int getCM();//activate sonar
 
 void latch_tx(void);
 
-void enable();
+void enable(); //enable motors;
 
 void DCMotorInit(uint8_t num);
 
 void DCMotorRun(uint8_t motornum, uint8_t cmd);
 
-void left(unsigned int);
+void left(unsigned int);//turn for set amout of seconds(unsigned int)
 
-void lleft();
+void lleft();//turn untill stop()
 
 void right(unsigned int);
 
@@ -27,6 +28,6 @@ void forwd(unsigned int);
 
 void fforwd();
 
-void stop();
+void stop();//stopping motors
 
 #endif // MRPII_H_

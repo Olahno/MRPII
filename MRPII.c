@@ -150,8 +150,7 @@ void DCMotorRun(uint8_t motornum, uint8_t cmd)
 
 
 int getCM() {
-       //delay(200);
-	 //Send trig pulse
+       	 //Send trig pulse
         digitalWrite(TRIG, HIGH);
         delayMicroseconds(60);
         digitalWrite(TRIG, LOW);
@@ -304,3 +303,5 @@ void stop()
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
+
+
