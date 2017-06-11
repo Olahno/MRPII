@@ -88,8 +88,7 @@
             <property name="label" translatable="yes">Distance:</property>
           </object>
           <packing>
-            <property name="x">140</property>
-            <property name="y">4</property>
+            <property name="x">106</property>
           </packing>
         </child>
         <child>
@@ -100,8 +99,8 @@
             <property name="can_focus">False</property>
           </object>
           <packing>
-            <property name="x">29</property>
-            <property name="y">53</property>
+            <property name="x">213</property>
+            <property name="y">12</property>
           </packing>
         </child>
         <child>
@@ -111,14 +110,13 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="max_length">3</property>
-            <property name="has_frame">False</property>
             <property name="width_chars">3</property>
             <property name="caps_lock_warning">False</property>
             <property name="input_purpose">digits</property>
           </object>
           <packing>
-            <property name="x">301</property>
-            <property name="y">46</property>
+            <property name="x">286</property>
+            <property name="y">44</property>
           </packing>
         </child>
         <child>
@@ -128,14 +126,13 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="max_length">3</property>
-            <property name="has_frame">False</property>
             <property name="width_chars">3</property>
             <property name="caps_lock_warning">False</property>
             <property name="input_purpose">digits</property>
           </object>
           <packing>
-            <property name="x">301</property>
-            <property name="y">56</property>
+            <property name="x">218</property>
+            <property name="y">47</property>
           </packing>
         </child>
         <child>
