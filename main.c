@@ -90,35 +90,7 @@ void enable(void)
 
    digitalWrite(MOTORENABLE, LOW);
 }
-void updatesonarlabel(int distance)
-{
-	gchar *sonardistance;
-	sonardistance = g_strdup_printf("%d", distance);
-	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
-	g_free(sonardistance);
-}
 
-int getCM() {
-       //delay(200);
-	 //Send trig pulse
-        digitalWrite(TRIG, HIGH);
-        delayMicroseconds(60);
-        digitalWrite(TRIG, LOW);
-
-        //Wait for echo start
-        while(digitalRead(ECHO) == LOW);
-
-        //Wait for echo end
-        long startTime = micros();
-        while(digitalRead(ECHO) == HIGH);
-        long travelTime = micros() - startTime;
-
-        //Get distance in cm
-        int distance = travelTime / 58;
-	updatesonarlabel(distance);
-       // printf("Distance: %dcm\n", distance);
-        return distance;
-}
 
 void DCMotorInit(uint8_t num)
 {
@@ -449,6 +421,35 @@ void btn_forward_button_release_event_cb()
 void on_btn_stopauto_clicked()
 {
 	stop();
+}
+void updatesonarlabel(int distance)
+{
+	gchar *sonardistance;
+	sonardistance = g_strdup_printf("%d", distance);
+	gtk_label_set_text (GTK_LABEL(g_lbl_sonar), sonardistance);
+	g_free(sonardistance);
+}
+
+int getCM() {
+       //delay(200);
+	 //Send trig pulse
+        digitalWrite(TRIG, HIGH);
+        delayMicroseconds(60);
+        digitalWrite(TRIG, LOW);
+
+        //Wait for echo start
+        while(digitalRead(ECHO) == LOW);
+
+        //Wait for echo end
+        long startTime = micros();
+        while(digitalRead(ECHO) == HIGH);
+        long travelTime = micros() - startTime;
+
+        //Get distance in cm
+        int distance = travelTime / 58;
+	updatesonarlabel(distance);
+       // printf("Distance: %dcm\n", distance);
+        return distance;
 }
 
 
