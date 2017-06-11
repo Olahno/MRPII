@@ -346,7 +346,7 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
- g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
+ g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
 g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
 	g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
     g_object_unref(builder);
