@@ -300,6 +300,7 @@ void stop()
    DCMotorRun(3, RELEASE);
    DCMotorRun(4, RELEASE);
 }
+/*
 void autopilot()
 {
 int block = atoi(gtk_entry_get_text(GTK_ENTRY(g_entry_block)));
@@ -343,14 +344,14 @@ while (gtk_events_pending()) {
 }
 	}
 
-}
+}*/
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_sonar;
-GtkEntry *g_entry_turn;
-GtkEntry *g_entry_block;
+/*GtkEntry *g_entry_turn;
+GtkEntry *g_entry_block;*/
 GtkToggleButton *g_btn_sonar;
-GtkToggleButton *g_btn_auto;
+//GtkToggleButton *g_btn_auto;
 
 int main(int argc, char *argv[])
 {
@@ -393,9 +394,9 @@ int main(int argc, char *argv[])
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_sonar = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_sonar"));
     g_btn_sonar = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_sonar"));
-    g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
+    /*g_btn_auto = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder, "btn_auto"));
     g_entry_turn = GTK_ENTRY(gtk_builder_get_object(builder,"entry_turn"));
-    g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));
+    g_entry_block = GTK_ENTRY(gtk_builder_get_object(builder,"entry_block"));*/
     g_object_unref(builder);
  
     gtk_widget_show(window);                
@@ -403,10 +404,7 @@ int main(int argc, char *argv[])
  
     return 0;
 }
-void on_btn_startauto_clicked()
-{
-	autopilot(2,30);
-}
+
  
 void btn_right_button_press_event_cb()
 {
@@ -467,7 +465,7 @@ delay(400);
 }
 }
 }
-void on_btn_auto_toggled()
+/*void on_btn_auto_toggled()
 {
 	autopilot();
 }
